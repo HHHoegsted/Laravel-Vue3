@@ -34,9 +34,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 		return Inertia::render('Users');
 	})->name('users');
 
-	Route::get('/leads/add', [LeadsController::class, 'create']);
+	Route::get('/leads/add', [LeadsController::class, 'create'])->name('leads.add');
 	Route::post('/leads/save', [LeadsController::class, 'store']);
-	Route::get('/leads', [LeadsController::class, 'index']);
+	Route::get('/leads', [LeadsController::class, 'index'])->name('leads');
+	Route::get('/leads/{id}', [LeadsController::class, 'show'])->name('leads.show');
+	Route::post('/leads/update', [LeadsController::class, 'update']);
 });
 
 
