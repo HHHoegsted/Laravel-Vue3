@@ -35,7 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 	})->name('users');
 
 	Route::get('/leads/add', [LeadsController::class, 'create']);
-
+	Route::post('/leads/save', [LeadsController::class, 'store']);
+	Route::get('/leads', [LeadsController::class, 'index']);
 });
 
 
